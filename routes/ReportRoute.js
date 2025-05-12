@@ -29,8 +29,7 @@ router.route("/reportDetails/:id").patch(submitReport).get(reportDetails);
 router
   .route("/editReport/:id")
   .patch(authorizeUser("Admin", "Back Office"), editReport)
-  .delete(deleteReport);
-
+  .delete(authorizeUser("Admin", "Back Office"), deleteReport);
 router.route("/generate/:id").get(generateReport);
 
 export default router;
